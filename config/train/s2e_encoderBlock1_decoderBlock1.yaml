@@ -1,0 +1,46 @@
+DATA:
+  data_root: /cfs2/user/chenliyang/Data
+  statiscs_path: /cfs2/user/chenliyang/Data/deca_param_statistics.npy
+  subjects: Obama yuhang_clip
+
+NETWORK:
+  arch: speech2landmark
+  in_dim: 1024
+  out_dim: 59
+  num_encoder_block: 1
+  num_decoder_block: 1
+  num_postnet_cnn_layer: 2
+  # hidden_size: 1024
+  # num_hidden_layers: 6
+  # num_attention_heads: 8
+  # intermediate_size: 1536
+
+TRAIN:
+  use_sgd: False
+  sync_bn: Ture  # adopt sync_bn or not
+  workers: 10  # data loader workers
+  batch_size: 8  # batch size for training
+  base_lr: 0.0001
+  StepLR: True
+  poly_lr: False
+  epochs: 50
+  step_size: 5
+  gamma: 0.5
+  start_epoch: 0
+  power: 0.9
+  momentum: 0.9
+  weight_decay: 0.002
+  manual_seed: 131
+  print_freq: 10
+  save_freq: 1
+  save_path:
+  resume:
+  evaluate: True  # evaluate on validation set, extra gpu memory needed and small batch_size_val is recommend
+  eval_freq: 1
+  # weight:
+
+
+TEST:
+  test_data_dir:
+  model_path:
+  test_save_dir:

@@ -1,0 +1,1 @@
+find $(pwd) | grep -E "(__pycache__|\.pyc|\.pyo|\.log|\.hydra|\.ipynb_checkpoints$)" | xargs rm -rf
